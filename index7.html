@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            color: red;
+        }
+        .ok {
+            color: #FF4081;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px;
+            margin-top: 30px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the left */
+        }
+        button {
+            background-color: #000000;
+            color: #FF4081;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bolder;
+        }
+        button:hover {
+            background-color: #FF4081;
+            color: #000000;
+        }
+        body {
+            background-color: rgb(145, 96, 192);
+        }
+        .all {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid black 2px;
+            border-radius: 20px;
+            width: 80%;
+            align-self: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 768px) {
+            .all {
+                flex-direction: column;
+                width: 90%;
+            }
+            button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Study Resources (so i don't forget them when i really need them )</h1>
+    <div class="all">
+        <div class="container">
+            <h2 class="ok">Japanese</h2>
+            <button onclick="window.location.href='https://youtu.be/RF3_DN6kdUQ?si=1TK69mgXkRLt79E_'">Japanese grammar</button>
+            <button onclick="window.location.href='https://youtu.be/dJL-ftdrSQQ?si=SpyKc93uUf_pM32y'">Basics Japanese</button>
+            <button onclick="window.location.href='https://youtu.be/Ysgg5zP-s3A?si=XA2Znl4n409T1Brm'">Fix japanese speaking</button>
+            <button onclick="window.location.href='https://youtube.com/playlist?list=PLPSfPyOOcp3QYCiQn5K39wxXVqqp7b5GB&si=e_c1fe18RRUFreJQ'">Introduce yourself in japanese</button>
+            <button onclick="window.location.href='https://youtube.com/playlist?list=PLPSfPyOOcp3Qbu6DT536Y1IkcRLSLbHty&si=kF3yHJaZobGXlAvd'">800 japanese words course</button>
+            <button onclick="window.location.href='https://youtu.be/ClLThfB2UEM?si=paZLj_kcq1G1n4L8'">Stay motivated to learn japanese</button>
+            <button onclick="window.location.href='Japanese_CORE2000.pdf'">Japanese core 2000 words</button>
+        </div>
+        <!-- <div class="container">
+            <h2 class="ok">Science</h2>
+        </div> -->
+        <div class="container">
+            <h2 class="ok">Web Development</h2>
+            <button onclick="window.location.href='https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w'">Sigma webdevelopment course</button>
+            <button onclick="window.location.href='https://www.youtube.com/@TheCodingSloth'">Coding sloth</button>
+        </div>
+    </div>
+    <div style="height: 400px;"></div>
+    <footer>&copy;This theme is inspired from blackpink</footer>
+</body>
+
+</html>
