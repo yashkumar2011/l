@@ -4,68 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content locator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Content Locator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FF4081;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-width: 90%;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.2);
+        }
+
+        .button-container:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.3);
+        }
+
+        button {
+            background: #FF4081;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #E91E63;
+            transform: scale(1.1);
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1 style="color:#FF4081;">All Websites Worth Showing</h1>
-
-    <div>
-        <button onclick="location.href='index2.html'">Website 2</button>
-        <p style="display: inline;"> Percentage calculator</p>
-    </div>
-    <!-- <div>
-        <button onclick="location.href='index3.html'">Website 3</button>
-        <p style="display: inline;"> Introduction of me</p>
-    </div>
-    <div>
-        <button onclick="location.href='index4.html'">Website 4</button>
-        <p style="display: inline;"> My Blog</p>
-    </div> -->
-    <div>
-        <button onclick="location.href='index5.html'">Website 5</button>
-        <p style="display: inline;"> Homework Progress Tracker</p>
-    </div>
-    <!-- <div>
-        <button onclick="location.href='index6.html'">Website 6</button>
-        <p style="display: inline;">Fill out this form</p>
-    </div> -->
-    <div>
-        <button onclick="location.href='https://yashkumar2011.github.io/OTT/'">Website 7</button>
-        <p style="display: inline;">OTT</p>
-    </div>
-    <div>
-        <button onclick="location.href='index6.html'">Website 8</button>
-        <p style="display: inline;">About me</p>
-    </div>
-    <div>
+    <h1>All Websites Worth Showing</h1>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="location.href='index2.html'">Website 2</button>
+            <p>Percentage Calculator</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='index5.html'">Website 5</button>
+            <p>Homework Progress Tracker</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='https://yashkumar2011.github.io/OTT/'">Website 7</button>
+            <p>OTT</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='index6.html'">Website 8</button>
+            <p>About Me</p>
+        </div>
+        <div class="button-container">
             <button onclick="location.href='index7.html'">Website 9</button>
-            <p style="display: inline;">Study Material to save for later</p>
-    </div>
-    <div>
-        <button onclick="location.href='index8.html'">Website 10</button>
-        <p style="display: inline;">Songs</p>
-    </div>
-    <div>
-        <button onclick="location.href='chatgpt.html'">Website 11</button>
-        <p style="display: inline;">Chatgpt conversations</p>
-    </div>
-    <div>
-        <button onclick="location.href='notion.html'">Website 12</button>
-        <p style="display: inline;">Notion websites</p>
-    </div>
-    <div>
-        <button onclick="location.href=''">Website 13</button>
-        <p style="display: inline;"></p>
-    </div>
-    <div>
-        <button onclick="location.href=''">Website 14</button>
-        <p style="display: inline;"></p>
-    </div>
-    <div>
-        <button onclick="location.href=''">Website 15</button>
-        <p style="display: inline;"></p>
+            <p>Study Material to Save for Later</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='index8.html'">Website 10</button>
+            <p>Songs</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='chatgpt.html'">Website 11</button>
+            <p>ChatGPT Conversations</p>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='notion.html'">Website 12</button>
+            <p>Notion Websites</p>
+        </div>
     </div>
 </body>
 
