@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz for My Lil Cousin Sis</title>
+</head>
+<style>
+    body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+        background-color: #e0f7ff;
+        margin: 0;
+        padding: 20px;
+    }
+    .quiz-container {
+        max-width: 600px;
+        margin: auto;
+        background: #d0eaff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .question {
+        font-size: 22px;
+        color: #004aad;
+        margin-bottom: 15px;
+        transition: color 0.3s ease-in-out;
+    }
+    .question:hover {
+        color: #005fcb;
+    }
+    .options button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #5a9eff;
+        color: white;
+        font-size: 18px;
+        transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+    .options button:hover {
+        background-color: #007bff;
+        transform: scale(1.1);
+    }
+    .result {
+        display: none;
+        font-size: 24px;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #007bff;
+        transition: opacity 0.5s ease-in-out;
+    }
+</style>
+<body>
+    <div class="quiz-container">
+        <h2> Quiz for My Lil Sis </h2>
+        <div id="quiz"></div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // 🔹 Question Data
+        const quizData = [
+            { 
+                question: "I accidentally delete your favorite anime episode. What do you do?", 
+                options: [
+                    { text: "Yell at me for 10 minutes", score: 1 },
+                    { text: "Make me re-download it", score: 2 },
+                    { text: "Forgive me and watch together", score: 3 },
+                    { text: "Pull a prank in revenge", score: 4 }
+                ]
+            },
+            { 
+                question: "I challenge you to a chess match. What’s your move?", 
+                options: [
+                    { text: "Destroy me instantly", score: 4 },
+                    { text: "Play fair and enjoy", score: 3 },
+                    { text: "Let me win because I’m your bro", score: 2 },
+                    { text: "Refuse and go watch anime", score: 1 }
+                ]
+            },
+            { 
+                question: "I told your parents that you use vulgar words. What do you do?", 
+                options: [
+                    { text: "Beat me when no one is watching", score: 1 },
+                    { text: "Stop talking to me", score: 2 },
+                    { text: "Ignore me a few days and then forgive", score: 3 },
+                    { text: "Forgive me instantly but make me promise not to do it again", score: 4 }
+                ]
+            },
+            { 
+                question: "I ate your favorite snacks that you saved for a long time. What do you do?", 
+                options: [
+                    { text: "Make me buy it for you", score: 1 },
+                    { text: "Beat me", score: 2 },
+                    { text: "Forgive, it's just food", score: 3 },
+                    { text: "Share the remaining with me", score: 4 }
+                ]
+            },
+            { 
+                question: "Question?", 
+                options: [
+                    { text: "option", score: 1 },
+                    { text: "option", score: 2 },
+                    { text: "option", score: 3 },
+                    { text: "option", score: 4 }
+                ]
+            },
+            { 
+        question: "I accidentally broke your favorite toy. What do you do?", 
+        options: [
+            { text: "Break something of mine", score: 1 },
+            { text: "Tell mom and complain", score: 2 },
+            { text: "Forgive me, mistakes happen", score: 3 },
+            { text: "Let me play with your new toy instead", score: 4 }
+        ]
+    },
+    { 
+        question: "I took the last slice of your birthday cake without asking. How do you react?", 
+        options: [
+            { text: "Steal something from me in revenge", score: 1 },
+            { text: "Give me an angry stare for hours", score: 2 },
+            { text: "Say ‘It's okay, enjoy it’", score: 3 },
+            { text: "Offer me another slice happily", score: 4 }
+        ]
+    },
+    { 
+        question: "I teased you in front of your friends. What do you do?", 
+        options: [
+            { text: "Expose my secrets in front of everyone", score: 1 },
+            { text: "Ignore me for a whole day", score: 2 },
+            { text: "Laugh it off", score: 3 },
+            { text: "Tease me back in a funny way", score: 4 }
+        ]
+    },
+    { 
+        question: "I made a mess in your room and left without cleaning. What's your move?", 
+        options: [
+            { text: "Make my room messy in revenge", score: 1 },
+            { text: "Tell mom to scold me", score: 2 },
+            { text: "Clean it up yourself", score: 3 },
+            { text: "Make me clean it while watching like a boss", score: 4 }
+        ]
+    },
+    { 
+        question: "I played a prank on you and scared you. How do you respond?", 
+        options: [
+            { text: "Plan an even scarier prank on me", score: 1 },
+            { text: "Refuse to talk to me for hours", score: 2 },
+            { text: "Laugh and appreciate the prank", score: 3 },
+            { text: "Tell me it was a good one and give me a high five", score: 4 }
+        ]
+    }
+        ];
+
+        let score = 0;
+        let currentQuestion = 0;
+
+        // 🔹 Load Next Question
+        function loadQuestion() {
+            if (currentQuestion < quizData.length) {
+                const quizDiv = document.getElementById("quiz");
+                const questionData = quizData[currentQuestion];
+                quizDiv.innerHTML = `
+                    <div class='question'>${questionData.question}</div>
+                    <div class='options'>
+                        ${questionData.options.map(option => 
+                            `<button onclick='selectOption(${option.score})'>${option.text}</button>`).join('')}
+                    </div>
+                `;
+            } else {
+                showResult();
+            }
+        }
+
+        // 🔹 Option Selection
+        function selectOption(selectedScore) {
+            score += selectedScore;
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        // 🔹 Show Final Result
+        function showResult() {
+            const resultDiv = document.getElementById("result");
+            let message = "";
+            
+            if (score <= 10) {
+                message = "You're a little troublemaker, but I still love ya! 😆";
+            } else if (score <= 15) {
+                message = "You're a bit mischievous, but we have fun! 😜";
+            } else if (score <= 20) {
+                message = "You're the best cousin ever! 🥰";
+            } else {
+                message = "You're a total legend! Family goals! 🤩";
+            }
+            
+            resultDiv.innerHTML = message;
+            resultDiv.style.display = "block";
+        }
+
+        // 🔹 Load the first question
+        loadQuestion();
+    </script>
+</body>
+</html>
