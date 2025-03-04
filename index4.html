@@ -5,33 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This page contains information about how you can become a topper">
-    <title>How to become a topper</title>
+    <title>How to Become a Topper</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FF4081;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.2);
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.2);
+        }
+
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .gender-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            background: #FF4081;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #E91E63;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="style4.css">
 
 <body>
-    <h1>Are you struggling with your studies ?</h1>
+    <h1>Are you struggling with your studies?</h1>
     <p>Here we will provide the best study tips and tricks to become the next topper of your class.</p>
     <h2>You could be him. 🤩👍</h2>
-    <img width="500" src="image.jpg" alt="Ayanokoji">
-    <caption>
-        <h3>Fill the below form to continue </h3>
-    </caption>
-    <form action="post">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Enter your name ">
-        <br>
-        <label for="class">Class</label>
-        <input type="number" id="class" placeholder="In which class do you study?"> <br>
-        <label for="Your previous result">Results</label>
-        <input type="number" name="Last class result" id="Your previous result"> <br>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label>
-    </form>
-    <button onclick="window.location.href='file2.html';">Submit</button>
+    <img src="image.jpg" alt="Ayanokoji">
+    <h3>Fill the form below to continue</h3>
     
+    <div class="form-container">
+        <form action="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="class">Class</label>
+            <input type="number" id="class" placeholder="In which class do you study?" required>
+
+            <label for="results">Your Previous Result</label>
+            <input type="number" id="results" placeholder="Enter your last class result" required>
+
+            <div class="gender-container">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+
+            <button onclick="window.location.href='file2.html';">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>
