@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Button</title>
+    <style>
+        button {
+            background-color: black;
+            color: cyan;
+            border: 2px solid cyan;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+            transition: 0.5s;
+            border-radius: 10px;
+            margin: 200px;
+        }
+
+        button:hover {
+            box-shadow: 0 0 5px cyan, 
+                        0 0 25px cyan, 
+                        0 0 50px cyan, 
+                        0 0 100px cyan, 
+                        0 0 200px cyan,
+                        0 0 250px cyan;
+                   
+        }
+        button:hover{
+            padding: 50px 100px 50px;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <button>Glowing Button</button>
+</body>
+</html>
